@@ -1,0 +1,93 @@
+{% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+<div class="container">
+    <h2>Multiple Sequence Alignment</h2>
+    <br />
+    <div class="container">
+        <p style="width: 100%; height : 50px; position: center; font-size: 20px;" class="pagination justify-content-center">
+            <span><a href="#" id="Paste"><b>Paste a Sequence</b></a></span>
+            <span>&nbsp;|&nbsp;</span>
+            <span><a href="#" id = "Upload"><b>Upload a File</b></a></span>
+
+        </p>
+      </div>
+    <div id="paste-show">
+      <div class="container">
+          <p class="pagination justify-content-center">Paste a Sequence or use the
+              <span>&nbsp;<a href="#" id="example">example </a><a href="#" data-toggle="tooltip" title="Users may paste their protein sequences in FASTA format. When the query is submitted, the query protein sequence will be aligned with protein sequences in this database."><i style="font-size:15px" class="fa">&#xf0a5</i></a></span>
+          </p>
+          <form action="{% url 'denitrifications_app:clusto' %}" method="get">
+              <div class="form-group">
+                  <textarea type="text" class="form-control" rows="5" height="50px" name="sequence" id="seq" value="text"></textarea>
+                  <br />
+                  <div class="pagination justify-content-end">
+                      <button class="btn btn-outline-secondary " type="submit ">Submit</button></div>
+              </div>
+          </form>
+      </div>
+  </div>
+  <div id="upload-show">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+
+                <form action="{% url 'denitrifications_app:clusto' %}" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}  
+                  <div class="form-group">
+                        <label for="exampleFormControlFile1">Example file input&nbsp;<a href="#" data-toggle="tooltip" title="Users can use the browse button to access and upload a text file from local disk. The file may contain a single or list of sequences in FASTA format."><i style="font-size:15px" class="fa">&#xf0a5</i></a></label>
+                        <input type="file" class="form-control-file" id="file" name='file'>
+                        <br /><br />
+                        <button class="btn btn-outline-secondary " type="submit ">Submit</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+ </div>
+ 
+<script>
+  $(document).ready(function() {
+      /* 默认情况下，只显示paste-show的表单*/
+      $("#paste-show").show();
+      $("#upload-show").hide();
+
+
+      $("#Paste").css("color", "#79ABFF");
+      $("#Upload").css("color", "#D0D0D0")
+
+
+      $("#example").click(function() {
+          /* 点击id=example时，就把placeholder属性添加序列*/
+          
+          $("#seq").text(
+              ">sp|P69905|HBA_HUMAN Hemoglobin subunit alpha OS=Homo sapiens GN=HBA1 PE=1 SV=2\nMVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHG\nKKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTP\nAVHASLDKFLASVSTVLTSKYR\n>sp|P01942|HBA_MOUSE Hemoglobin subunit alpha OS=Mus musculus GN=Hba PE=1 SV=2\nMVLSGEDKSNIKAAWGKIGGHGAEYGAEALERMFASFPTTKTYFPHFDVSHGSAQVKGHG\nKKVADALASAAGHLDDLPGALSALSDLHAHKLRVDPVNFKLLSHCLLVTLASHHPADFTP\nAVHASLDKFLASVSTVLTSKYR\n>sp|P13786|HBAZ_CAPHI Hemoglobin subunit zeta OS=Capra hircus GN=HBZ1 PE=3 SV=2\nMSLTRTERTIILSLWSKISTQADVIGTETLERLFSCYPQAKTYFPHFDLHSGSAQLRAHG\nSKVVAAVGDAVKSIDNVTSALSKLSELHAYVLRVDPVNFKFLSHCLLVTLASHFPADFTA\nDAHAAWDKFLSIVSGVLTEKYR ");
+      });
+      $("#Paste").click(function() {
+          /*点击id=Paste时，显示id=paste-show的表单*/
+          $("#paste-show").show();
+          $("#upload-show").hide();
+          
+
+          $("#Paste").css("color", "#79ABFF");
+          $("#Upload").css("color", "#D0D0D0")
+          
+      });
+      $("#Upload").click(function() {
+          /*点击id=Upload时，显示id=upload-show的表单*/
+          $("#upload-show").show();
+          $("#paste-show").hide();
+          
+
+          $("#Upload").css("color", "#79ABFF");
+          $("#Paste").css("color", "#D0D0D0");
+          
+      });
+      
+
+      $('[data-toggle="tooltip"]').tooltip(); // 显示example的手势
+  });
+</script>
+</div>{% endblock main %}

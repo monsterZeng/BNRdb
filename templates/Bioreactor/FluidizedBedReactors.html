@@ -1,0 +1,167 @@
+{% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+  <div class = "container">
+    <h2>Fluidized Bed Reactor</h2>
+    <div class="card">
+      <div class="card-header"></div>
+      <div class="card-body">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>General Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><p align = "justify">Biological nitrate removal employing the use of fluidized bed reactors (FBR) is a highly efficient treatment regime for nitrate removal. It is used in treatment of nitrate contaminated groundwater meeting drinking water standards.</p></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Basic Operation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><p align = "justify">Fluidized-bed bioreactors are necessarily immobilized-cell reactors. This fixed-film bioreactor nurtures the growth of microbes on a hydraulically fluidized fine medium, usually sand. The small fluidized medium provides a large surface area upon which microbes can grow, producing a large biomass inventory whilst maintaining thin films, minimizing any mass transfer limitations. This large biomass inventory, spread out in thin films, provides the system’s high volumetric efficiency. For removal of nitrate, the biomass is composed of heterotrophic denitrifying bacteria that convert nitrate to nitrogen gas using carbon as a source of energy. The influent is fed into the lower portion of the reactor where it is mixed with a carbon source. Biological nitrate removal is supported within this type of reactor using a wide variety of carbon sources, which include ethanol, acetic acid and methanol. The nitrate-laden water flows upward through the reactor at a controlled velocity in-order to fluidize (expand) the bed, thereby allowing the denitrifying microbe to come into intimate contact with the carbon source and nitrate. The long solids retention time characteristics of the system allows for the efficient removal of nitrate at even low temperatures. The nitrogen gas formed is simply carried to the top of the reactor with the following water where it disengages and escapes to the atmosphere. Fluidized bed reactors are generally very large and are capable of accommodating high and/or fluctuating nitrate levels, making them an ideal system for groundwater remediation applications. This is primarily because the recycle flow dilutes nitrate in the feed water, effectively homogenizing the nitrate load to the reactor. The required amount of carbon source is metered into the system using a feed-forward control loop that takes into account both feed flow and nitrate concentration. Alternatively, for applications where the nitrate concentration in the feed water is relatively steady, the addition of carbon source can simply be paced into the system proportional to the feed flow. An important aspect when designing a fluidized bed reactor is the catalyst half-life. A majority of fluidized bed reactors tend to have a separate compartment to regenerate the catalyst.</p></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Biofilm carriers commonly used</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>Sand</p>
+                <p>Bone china fine granules</p>
+                <p>Granular activated carbon (GAC)</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Variations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>Tower fermentor</p>
+                <p>Upflow anaerobic sludge blanket reactor</p>
+                <p>Supported film fermenter</p>
+                <p>Aerobic recycle reactor</p>
+                <p>Three-phase aerobic reactor</p>
+                <p>Tapered bed</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Benefits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li><p align = "justify">No backwashing is required, and there is no ‘burping’ that can occur, such as with static denitrification filters.</p></li>
+                  <li><p align = "justify">Catalyst is easily replaced or regenerated</p></li>
+                  <li><p align = "justify">Uniform temperature gradients: Many chemical reactions require the addition or removal of heat. Local hot or cold spots within the reaction bed, often a problem in packed beds, are avoided in a fluidized situation such as an FBR. </p></li>
+                  <li><p align = "justify">Ability to operate reactor in continuous state: The fluidized bed nature of these reactors allows for the ability to continuously withdraw product and introduce new reactants into the reaction vessel. Operating at a continuous process state allows manufacturers to produce their various products more efficiently due to the removal of startup conditions in batch processes.</p></li>
+                  <li><p align = "justify">Uniform particle mixing: Due to the intrinsic fluid-like behavior of the solid material, fluidized beds do not experience poor mixing as in packed beds. This complete mixing allows for a uniform product that can often be hard to achieve in other reactor designs. </p></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Limitations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li><p align = "justify">Expensive to construct and maintain: Because of the expansion of the bed materials in the reactor, a larger vessel is often required than that for a packed bed reactor. This larger vessel means that more must be spent on initial capital costs.</p></li>
+                  <li><p align = "justify">Catalyst may be deactivated: Fluidized beds are inherently continuous reactors, they therefore share the problems of contamination, back mutation and genetic instability common to all continuous fermenters containing weakened, mutated or genetically engineered cell lines. Together with the oxygen transfer problem.</p></li>
+                  <li><p align = "justify">Erosion of internal components: The fluid-like behavior of the fine solid particles within the bed eventually results in the wear of the reactor vessel. This can require expensive maintenance and upkeep for the reaction vessel and pipes.</p></li>
+                  <li><p align = "justify">Large pressure drops occur: If fluidization pressure is suddenly lost, the surface area of the bed may be suddenly reduced. </p></li>
+                  <li><p align = "justify">Particle entrainment: The high gas velocities present in this style of reactor often result in fine particles becoming entrained in the fluid. These captured particles are then carried out of the reactor with the fluid, where they must be separated. This can be a very difficult and expensive problem to address depending on the design and function of the reactor. </p></li>
+                  <li><p align = "justify">Pumping requirements and pressure drop: The requirement for the fluid to suspend the solid material necessitates that a higher fluid velocity is attained in the reactor. In order to achieve this, more pumping power and thus higher energy costs are needed. In addition, the pressure drop associated with deep beds also requires additional pumping power.</p></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Applications of the bioreactor system</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>Municipal wastewaters </p>
+                <p>Groundwater</p>
+                <p>Industrial wastewaters</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Trialed Configurations/ Usage examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li><p align = "justify">A fluidized bed reactor (FBR) system that is operational in San Diego, California at Kinder Morgan Energy Partners’ Mission Valley has the capacity to remove nitrates from contaminated groundwater processing 0.5 million gallon per day (MGD) whilst reducing influent nitrate levels of 4 mg/L to <1.0 mg/L nitrate. The system is designed to provide a final treatment step for impacted groundwater pumped from an aquifer prior to discharge to the watershed.</p></li>
+                  <li><p align = "justify">Another fluidized bed reactor was setup by Environgen, in the city of Pomona, California to remove nitrates from groundwater well. The system brought the wells within stipulated regulations for portable domestic use. The treatment system ensured a clean, reliable, economical, local source of drinking water for the City, with 500000 gallons per day being treated.</p></li>
+                  <li><p align = "justify">In Hi-Desert Water District, California a fluidized bed reactor was incorporated to remedy the groundwater which contained high concentration levels of nitrate as a result of the nitrates generated by the septic systems in the area. A 2,500-gallons per minute nitrate removal facility was employed which delivered up to 2.8 million gallons of safe drinking water daily to the peoples of those communities.</p></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Further Reading</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li><p><a href = "https://www.waterworld.com/" target="_blank">https://www.waterworld.com/</a></p></li>
+                  <li><p><a href = "https://www.envirogen.com/" target="_blank">https://www.envirogen.com/</a></p></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div> 
+      <div class="card-footer"></div>
+    </div>
+  </div>
+{% endblock main %}

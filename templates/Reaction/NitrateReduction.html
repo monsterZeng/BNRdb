@@ -1,0 +1,106 @@
+{% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+<div class="container">
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ReactionStage</th>
+                    <th>Microorganism</th>
+                    <th>Gene</th>
+                    <th>Enzyme</th>
+                    <th>Authors</th>
+                    <th>Pubmed ID</th>
+                    <th>References</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if num == 1 %}
+                <tr>
+                    <td>Nitrate Reduction</td>
+                    <td>Marinobacter hydrocarbonoclasticus 617</td>
+                    <td>NarG</td>
+                    <td>Respiratory nitrate reductase</td>
+                    <td>Marangon et al. 2012</td>
+                    <td>22561116</td>
+                    <td>
+                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/22561116">Link</a>
+                    </td>
+                </tr>
+
+                {% elif num == 2 %}
+                <tr>
+                    <td>Nitrate Reduction</td>
+                    <td>Escherichia coli</td>
+                    <td>NapA</td>
+                    <td>Periplasmic nitrate reductase</td>
+                    <td>Sparacino-Watkins et al. 2014</td>
+                    <td>24141308</td>
+                    <td>
+                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/24141308">Link</a>
+                    </td>
+                </tr>
+                {% elif num == 3 %}
+                <tr>
+                    <td>Nitrite Reduction</td>
+                    <td>Achromobacter cycloclastes</td>
+                    <td>NirK</td>
+                    <td>Copper-containing nitrite reductase</td>
+                    <td>Antonyuk et al. 2005</td>
+                    <td>16093314</td>
+                    <td>
+                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/16093314">Link</a>
+                    </td>
+                </tr>
+                {% elif num == 4 %}
+                <tr>
+                    <td>Nitrite Reduction</td>
+                    <td>Pseudomonas_aeruginosa</td>
+                    <td>NirS</td>
+                    <td> Cd1 nitrite reductase</td>
+                    <td>Cutruzzolà et al. 2003</td>
+                    <td>14711008</td>
+                    <td>
+                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/14711008">Link</a>
+                    </td>
+                </tr>
+                {% elif num == 5 %}
+                <tr>
+                    <td>Nitric oxide reduction</td>
+                    <td>N/A</td>
+                    <td>NorB</td>
+                    <td>Nitric oxide reductase</td>
+                    <td>Tavares et al. 2006</td>
+                    <td>17070915</td>
+                    <td>
+                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/17070915">Link</a>
+                    </td>
+                </tr>
+                {% elif num == 6 %}
+                <tr>
+                    <td>Nitrous Oxide reductase</td>
+                    <td>Pseudomonas_pantotrophus</td>
+                    <td>NosZ</td>
+                    <td>Nitrous oxide reductase</td>
+                    <td>Tavares et al. 2006</td>
+                    <td>17070915</td>
+                    <td>
+                        <a href="https://www.ncbi.nlm.nih.gov/pubmed/17070915">Link</a>
+                    </td>
+                </tr>
+                {% endif %}
+        </table>
+        <div class="container">
+            {% if num == 1 %}
+            <img src="/static/imag/1.jpg" style="width:100% ;height: 70%;" /> {% elif num == 2 %}
+            <img src="/static/imag/2.jpg" style="width:100% ;height: 50%;" /> {% elif num == 3 %}
+            <img src="/static/imag/3.jpg" style="width:100% ;height: 50%;" /> {% elif num == 4 %}
+            <img src="/static/imag/4.jpg" style="width:100% ;height: 50%;" /> {% elif num == 5 %}
+            <img src="/static/imag/5.jpg" style="width:100% ;height: 50%;" /> {% elif num == 6 %}
+            <img src="/static/imag/6.jpg" style="width:100% ;height: 50%;" /> {% endif %}
+        </div>
+    </div>
+</div>{% endblock main%}

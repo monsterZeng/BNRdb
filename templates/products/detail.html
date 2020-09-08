@@ -1,0 +1,145 @@
+{% extends 'base.html'%}<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %}
+{{title}}
+{% endblock title%}
+<style>
+
+</style>
+
+
+{% block main %}
+
+  <div class="container">
+  <h2>Detailed information</h2>
+    <div class="card">
+      <div class="card-header" style="background-color:LightGrey"></div>
+      <div class="card-body">
+        <!--******************************************************************-->
+        <table class="table">
+          <thead class="thead-dark">
+          <tr><th><h3>Microorganism</h3></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>{{product.Microorganism}}</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!--******************************************************************-->
+        <table class="table">
+          <thead class="thead-dark">
+          <tr><th><h3>Taxonomy</h3></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li><b>Phylum :</b> {{product.Phylum}}</li>
+                  <li><b>Class :</b> {{product.Class}}</li>
+                  <li><b>Order :</b> {{product.myOrder}}</li>
+                  <li><b>Family :</b> {{product.Family}}</li>
+                  <li><b>Genus :</b> {{product.Genus}}</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!--******************************************************************-->
+        <table class="table">
+          <thead class="thead-dark">
+          <tr><th><h3>Electron Acceptor</h3></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+	      <td>
+		      {% ifequal product.Nitrious_intermediate_consumed_reduced_Electron_acceptor 'NO3-' %}
+            <p>NO<sub>3</sub><sup>-</sup></p>
+          {% endifequal %}
+		      {% ifequal product.Nitrious_intermediate_consumed_reduced_Electron_acceptor 'NO3-, NO2-' %}
+            <p>NO<sub>3</sub><sup>-</sup>,NO<sub>2</sub><sup>-</sup></p> 
+          {% else %}  
+          <p>{{product.Nitrious_intermediate_consumed_reduced_Electron_acceptor}}</p>
+		      {% endifequal %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!--******************************************************************-->
+        <table class="table">
+          <thead class="thead-dark">
+          <tr><th><h3>Electron Donor</h3></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                {% ifequal product.Energy_Source_Electron_donor  'H2' %}
+                  <p>H<sub>2</sub></p>
+                {% else %}
+                <p>{{product.Energy_Source_Electron_donor}}</p>
+                {% endifequal %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!--******************************************************************-->
+        <table class="table">
+          <thead class="thead-dark">
+          <tr><th><h3>Information about Article</h3></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p><b>Reference:</b>{{product.Reference}}</p>
+                <p><b>Title:</b>{{product.Title}}</p>
+                <p><b>Pubmed ID:</b>{{product.PMID}}</p>
+                {% ifequal product.PubMed_Link 'nan'%}
+                  <p><b>Pubmed link:</b><a href="#" data-toggle="modal" data-target="#myModal">Link</a></p>
+                {% else %}
+                  <p><b>Pubmed link:</b><a href = "{{product.PubMed_Link}}" target="_blank">Link</a></p>
+                {% endifequal %}
+                
+                {% ifequal product.Research_Link 'nan'%}
+                  <p><b>Pubmed link:</b><a href="#" data-toggle="modal" data-target="#myModal">Link</a></p>
+                {% else %}
+                  <p><b>Full research link:</b><a href = "{{product.Research_Link}}" target="_blank">Link</a></p>
+                {% endifequal %}
+                <p><b>Abstract:</b> {{product.Abstract}}</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!--******************************************************************-->
+      </div> 
+      <div class="card-footer" style="background-color:LightGrey"></div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">Message</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+              Sorry, no more detail. Entry does not have reference link.
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+{% endblock main%}

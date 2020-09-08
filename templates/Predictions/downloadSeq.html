@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <a href="{% url 'denitrifications_app:downloadSeq' %}" download="">
+                <h3>Download</h3>
+            </a>
+        </div>
+        <div class="card-body">
+            <pre>{{sequence}}</pre>
+        </div>
+        <div class="card-footer"></div>
+    </div>
+</div>
+{% endblock main%}

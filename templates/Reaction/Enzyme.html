@@ -1,0 +1,99 @@
+{% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+<div class="container">
+    <table class="table table-bordered table-sm">
+        <thead>
+            <tr>
+                <th>Enzyme Name</th>
+                <th>Encoding Gene</th>
+                <th>Enzyme Commission number</th>
+                <th>
+                    <center>Description</center>
+                </th>
+                <th>link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Membrane-bound nitrate reductase</td>
+                <td>narG</td>
+                <td><a href="https://www.brenda-enzymes.info/enzyme.php?ecno=1.7.5.1" target="_blank">1.7.5.1</a></td>
+                <td>A membrane-bound enzyme which supports anaerobic respiration on nitrate under anaerobic conditions and in the presence of nitrate. Contains the bicyclic form of the molybdo-bis(molybdopterin guanine dinucleotide) cofactor, iron-sulfur
+                    clusters and heme b. Escherichia coli expresses two forms NarA and NarZ, both being comprised of three subunits.</td>
+                <td>
+                    <a href="{% url 'denitrifications_app:Enzyme_Narg'%}" target="_blank ">Link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Periplasmic nitrate reductase (cytochrome)</td>
+                <td>napA</td>
+                <td><a href="https://www.brenda-enzymes.info/enzyme.php?ecno=1.9.6.1" target="_blank ">1.9.6.1</a></td>
+                <td>the single subunit nitrate reductase (Nap) appears to be involved in both the assimilatory and the dissimilatory denitrification pathways. The role in the former is supported by the methanol growth deficiency of the mutant when nitrate
+                    is used as a nitrogen source, and the role in the latter is supported by the lack of accumulation of N2O in the mutant</td>
+                <td>
+                    <a href="{% url 'denitrifications_app:Enzyme_Napa'%}" target="_blank ">Link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Nitrite reductase (NO-forming)</td>
+                <td>NirK</td>
+                <td>
+                    <a href="https://www.brenda-enzymes.info/enzyme.php?ecno=1.7.2.1" target="_blank ">1.7.2.1</a>
+                </td>
+                <td>Nirk is a copper-containing nitrite reductase (CuNiR) and a key catalytic enzyme in the environmental denitrification process that helps to produce nitric oxide from nitrite, molecular mechanism of denitrification process.</td>
+                <td>
+                    <a href="{% url 'denitrifications_app:Enzyme_Nirk'%}" target="_blank">Link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Dissimilatory nitrite reductase cytochrome cd1</td>
+                <td>NirS</td>
+                <td>
+                    <a href="https://www.brenda-enzymes.info/enzyme.php?ecno=1.7.2.1" target="_blank ">1.7.2.1</a>
+                </td>
+                <td>NirS cytochrome cd1 nitrite reductase and a key catalytic enzyme in the environmental denitrification process that helps to produce nitric oxide from nitrite, molecular mechanism of denitrification process. Cytochrome cd1 also has oxidase
+                    and hydroxylamine reductase activities. May also catalyse the reaction of hydroxylamine reductase (EC 1.7.99.1) since this is a well-known activity of cytochrome cd1.</td>
+                <td>
+                    <a href="{% url 'denitrifications_app:Enzyme_Nirs'%}" target="_blank ">Link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Nitric oxide reductase (cytochrome c)</td>
+                <td>norC</td>
+                <td>
+                    <a href="https://www.brenda-enzymes.info/enzyme.php?ecno=1.7.2.5" target="_blank ">1.7.2.5</a>
+                </td>
+                <td>Reduction of NO to N2O byR denitrifiying bacteria is catalyzed either by a monomeric quinol-nitric oxide reductase (qNor, EC 1.7.5.2) or by a heterodimeric cytochrome c-dependent nitric oxide reductase (cNor)</td>
+                <td>
+                    <a href="{% url 'denitrifications_app:Enzyme_Norc'%}">Link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Orthology: nitric oxide reductase subunit B</td>
+                <td>norB</td>
+                <td>
+                    <a href="https://www.genome.jp/dbget-bin/www_bget?ko:K04561" target="_blank ">1.7.2.5</a>
+                </td>
+                <td>reduction of NO to N2O by denitrifiying bacteria is catalyzed either by a monomeric quinol-nitric oxide reductase (qNor, EC 1.7.5.2) or by a heterodimeric cytochrome c-dependent nitric oxide reductase (cNor)</td>
+                <td>
+                    <a href="{% url 'denitrifications_app:Enzyme_Norb'%}">Link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Nitrous-oxide reductase </td>
+                <td>nosZ</td>
+                <td>
+                    <a href="https://www.brenda-enzymes.info/enzyme.php?ecno=1.7.2.4" target="_blank ">1.7.2.4</a>
+                </td>
+                <td>the enzyme is one of the key enzymes involved in denitrification</td>
+                <td>
+                    <a href="{% url 'denitrifications_app:Enzyme_Nosz'%}">Link</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>{% endblock main%}

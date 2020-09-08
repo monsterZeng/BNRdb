@@ -1,0 +1,294 @@
+{% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+<style>
+    /* Make the image fully responsive */
+    
+    .carousel-inner img {
+        width: 100%;
+        height: 360px;
+    }
+    
+    .circle {
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        color: white;
+        background-color: rgb(48, 116, 116);
+        /*text-shadow: 1px 1px rgba(0, 0, 0, .5);*/
+        padding: 10px;
+        /*text-align: justify;*/
+        font-size: 20px;
+    }
+    
+    before {
+        float: left;
+        width: 50%;
+        height: 100%;
+        shape-outside: radial-gradient(farthest-side ellipse at right, transparent 100%, red);
+        /* background: radial-gradient(farthest-side ellipse at right, transparent 100%,  red); */
+    }
+    
+    after {
+        float: right;
+        width: 50%;
+        height: 100%;
+        shape-outside: radial-gradient(farthest-side ellipse at left, transparent 100%, red);
+        /* background: radial-gradient(farthest-side ellipse at left, transparent 100%,  red); */
+    }
+    
+    div.img {
+        border: 1px solid #ccc;
+        float: left;
+        width: 350px;
+        height: 250px;
+        margin-top: 5px;
+    }
+    
+    div.img:hover {
+        border: 1px solid #777;
+    }
+    
+    div.img img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    div.desc {
+        padding: 15px;
+        text-align: center;
+        font-size: 13px;
+    }
+</style>
+<div class="container">
+
+    <!-----------------------------------轮播图-------------------------------------->
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- 指示符 -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- 轮播图片 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img style = "border-radius:10px"src="/static/imag/A modern wastewater treatment plant with ponds that recycle sewagewater. Photo credit ChavoBart Digital_Media.jpg">
+                <div class="carousel-caption" style="float:right">
+                    <p class="circle" style="float:right; margin-right:5px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                        <before></before>
+                        <after></after>
+                        &nbsp;&nbsp;&nbsp;&nbsp; <a href ="{% url 'denitrifications_app:WastewaterTreat' %}" style = "color: white;" target="_blank">Application of different microbial denitrification systems in different environmental settings</a>
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img style = "border-radius:10px" src="/static/imag/HUDSON_2.JPG">
+                <div class="carousel-caption">
+                    <p class="circle" style="float:right; margin-right:10px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                        <before></before>
+                        <after></after>
+                        &nbsp;&nbsp;&nbsp;&nbsp; <a href ="{% url 'denitrifications_app:WastewaterTreat' %}" style = "color: white;" target="_blank">Application of &nbsp;&nbsp;different microbial denitrification systems in different environmental settings</a>
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img style = "border-radius:10px" src="/static/imag/Original_freshwater.png">
+                <div class="carousel-caption">
+                    <p class="circle" style="float:right; margin-right:10px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                        <before></before>
+                        <after></after>
+                        &nbsp;&nbsp;&nbsp;&nbsp; <a href ="{% url 'denitrifications_app:WastewaterTreat' %}" style = "color: white;" target="_blank">Application of &nbsp;&nbsp;different microbial denitrification systems in different environmental settings</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 左右切换按钮 -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+    <!-----------------------------------照片栏-------------------------------------->
+    
+    <br/>
+    <div class="row">
+        <div class="col-sm-4">
+            <div id="img1" style=" border-radius:10px;background-image: url(/static/imag/Genes_tmp.jpg);width:100%;height:350px">
+                <br />
+                <a target="_blank" href="{% url 'denitrifications_app:NarG' %}">
+                    <p style="font-size:13px;background-color: rgb(48, 116, 116);width:30%;height: 40px; opacity: 0.7;color: white; font-size:25px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Genes</p>
+                </a>
+            </div>
+            <div class="desc">
+                <p>Diverse denitrifying bacterial communities identified based on the functional genes of denitrification.</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div id="img1" style=" border-radius:10px;background-image: url(/static/imag/img2_2.jpg);width:100%;height:350px">
+                <br />
+                <a target="_blank" href="{% url 'denitrifications_app:Strains' %}">
+                    <p style="font-size:13px;background-color:rgb(48, 116, 116);width:30%;height: 40px; opacity: 0.7;color: white; font-size:25px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Strains</p>
+                </a>
+            </div>
+            <div class="desc">
+                <p>Bacteria identified from the environment that have the ability to perform denitrification.</p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div style="border-radius:10px;background-image: url(/static/imag/Tools_tmp.jpg);width:100%;height:350px">
+                <br />
+                <a target="_blank" href="{% url 'denitrifications_app:hmmer' %}">
+                    <p style="font-size:13px;background-color: rgb(48, 116, 116);width:30%;height: 40px; opacity: 0.7;color: white; font-size:25px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Tools</p>
+                </a>
+            </div>
+            <div class="desc">
+                <p>We provide a variety of integrated tools facilitating researchers to perform analytical and annotation functions.</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- <div>
+        <h2>Data summary</h2>
+        <div id="DataSummary" style="width: 550px; height: 400px; margin: 0 auto"></div>
+    </div> -->
+    <br />
+    <br />
+    <br />
+    <!--                                 数据展示                                  -->
+
+    <script language="JavaScript">
+        $(document).ready(function() {
+            /*
+                Genes:  
+                    NarG:438  
+                    NapA:80
+                    NirK:2757
+                    NirS:5000
+                    cNorB:96
+                    qNorB:36
+                    NosZ:256
+    
+                Strains:889
+                
+                total:9552
+                */
+            var colors = Highcharts.getOptions().colors;
+            var categories = ['Genes', ' '];
+            var data = [{
+                y: 8663,
+                color: colors[0],
+                drilldown: {
+                    name: 'Genes',
+                    categories: ['NarG', 'NapA', 'NirK', 'NirS', 'cNorB', 'qNorB', 'NosZ'],
+                    data: [438, 80, 2757, 5000, 96, 36, 256],
+                    exData: [4.59, 0.84, 28.86, 52.35, 1.01, 0.38, 2.68],
+                    color: colors[0]
+                }
+            }, {
+                y: 889,
+                color: colors[1],
+                drilldown: {
+                    name: 'Strains',
+                    categories: ['Strains'],
+                    data: [889],
+                    exData: [9.31],
+                    color: colors[1]
+                }
+            }];
+            var browserData = [];
+            var versionsData = [];
+            var i, j;
+            var dataLen = data.length;
+            var drillDataLen;
+            var brightness;
+
+
+            // Build the data arrays
+            for (i = 0; i < dataLen; i += 1) {
+                // add browser data
+                browserData.push({
+                    name: categories[i],
+                    y: data[i].y,
+                    color: data[i].color
+                });
+
+                // add version data
+                drillDataLen = data[i].drilldown.data.length;
+                for (j = 0; j < drillDataLen; j += 1) {
+                    brightness = 0.2 - (j / drillDataLen) / 5;
+                    versionsData.push({
+                        name: data[i].drilldown.categories[j],
+                        y: data[i].drilldown.exData[j],
+                        color: Highcharts.Color(data[i].color).brighten(brightness).get()
+                    });
+                }
+            }
+
+            var chart = {
+                type: 'pie'
+            };
+            var title = {
+                text: 'Denitrification Database'
+            };
+            var yAxis = {
+                title: {
+                    text: 'Total percent market share'
+                }
+            };
+            var tooltip = {
+
+            };
+            var plotOptions = {
+                pie: {
+                    shadow: false,
+                    center: ['50%', '50%']
+                }
+            };
+            var series = [{
+                name: 'num',
+                data: browserData,
+                size: '60%',
+                dataLabels: {
+                    formatter: function() {
+                        return this.y > 5 ? this.point.name : null;
+                    },
+                    color: 'white',
+                    distance: -30
+                }
+            }, {
+                name: 'percentage',
+                data: versionsData,
+                size: '80%',
+                innerSize: '60%',
+                dataLabels: {
+                    formatter: function() {
+                        // display only if larger than 1
+                        return this.y > 1 ? '' + this.point.name + ': ' + this.y + '%' : null;
+                    }
+                }
+            }];
+
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.yAxis = yAxis;
+            json.tooltip = tooltip;
+            json.series = series;
+            json.plotOptions = plotOptions;
+            $('#DataSummary').highcharts(json);
+        });
+    </script>
+
+</div>
+
+{% endblock main %}

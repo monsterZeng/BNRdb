@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+
+<div class="container" style="width: 1000px">
+    <div class="card">
+        <div class="card-header"></div>
+        < <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+    <img src="..." class="card-img-top" alt="...">
+</div>
+<br />
+<br />
+<div class="card">
+    <div class="card-header"></div>
+    < <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+</div>
+<img src="..." class="card-img-top" alt="...">
+</div>
+</div>
+{% endblock main%}

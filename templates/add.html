@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+<form action="{% url 'denitrifications_app:Microorganism' %}" method="post">
+    {% csrf_token %}
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <label for="your_age">Your age: </label>
+    <input id="your_name" type="text" name="your_age" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form>
+{% endblock main%}

@@ -1,0 +1,248 @@
+{% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+<div class="container">
+    <h2>Detailed information</h2>
+    <div class="card">
+        <div class="card-header" style="background-color:LightGrey"></div>
+        <div class="card-body">
+            <!--******************************************************************-->
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            <h3>Microorganism</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>{{Enzyme.Microorganism}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--******************************************************************-->
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            <h3>Taxonomy</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Phylum :</b> {{Enzyme.Phylum}}</li>
+                                <li><b>Class :</b> {{Enzyme.Class}}</li>
+                                <li><b>Order :</b> {{Enzyme.myOrder}}</li>
+                                <li><b>Family :</b> {{Enzyme.Family}}</li>
+                                <li><b>Genus :</b> {{Enzyme.Genus}}</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--******************************************************************-->
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            <h3>Isolation Source</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>{{Enzyme.Isolation_source}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--******************************************************************-->
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            <h3>Enzyme Name</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p>{{Enzyme.Enzyme_Name}}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--******************************************************************-->
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Encoding Gene:</b>{{Enzyme.Encoding_Gene}}</li>
+                                <li><b>DNA Size：</b>{{Enzyme.DNA_size_bp}}</li>
+                                <li>
+                                    <b>Nucleotide FASTA sequence：</b>
+                                    {% ifequal Enzyme.GenFASTA 'nan'%}
+                                        <a href="#" data-toggle="modal" data-target="#myModal1">Link</a></p>
+                                    {% else %}
+                                        <a href = "{{Enzyme.GenFASTA}}" target="_blank">Link</a></p>
+                                    {% endifequal %}
+                                   <!--  <a href={{Enzyme.GenFASTA}} target="_blank">Link</a> -->
+
+                                </li>
+                                <li><b>UniProt I.D:</b> {% ifnotequal Enzyme.UniprotK 'nan' %}
+                                    <a href={{Enzyme.Uniprot_Link}} target="_blank">
+                                        {{Enzyme.UniprotK}}
+                                    </a> {% else %} nan {% endifnotequal %}
+
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--******************************************************************-->
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            <h3>Protein Information</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Pro_GenBank I.D：</b>
+                                    {% ifequal Enzyme.Protein_Link 'nan'%}
+                                        <a href="#" data-toggle="modal" data-target="#myModal1">{{Enzyme.Protein_ID}}</a></p>
+                                    {% else %}
+                                        <a href = "{{Enzyme.Protein_Link}}" target="_blank">{{Enzyme.Protein_ID}}</a></p>
+                                    {% endifequal %}
+                                    
+                                    <!-- <a href={{Enzyme.Protein_Link}} target="_blank">{{Enzyme.Protein_ID}}</a> -->
+                                </li>
+                                <li><b>Length：</b>{{Enzyme.Length_aa}}</li>
+                                <li><b>Protein FASTA_sequence:</b>
+
+                                    {% ifequal Enzyme.ProFASTA 'nan'%}
+                                        <a href="#" data-toggle="modal" data-target="#myModal1">Link</a></p>
+                                    {% else %}
+                                        <a href = "{{Enzyme.ProFASTA}}" target="_blank">Link</a></p>
+                                    {% endifequal %}
+                                    <!-- <a href={{Enzyme.ProFASTA}} target="_blank">Link</a> -->
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--******************************************************************-->
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            <h3>Information about Article</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Reference：</b>{{Enzyme.Authors}}
+                                </li>
+                                <li><b>Title：</b>{{Enzyme.Title}}</li>
+                                <li><b>Pubmed ID：{{Enzyme.PMID}}</b>
+                                </li>
+                                <li><b>Pubmed link：</b>
+
+                                {% ifequal Enzyme.Link 'nan'%}
+                                    <a href="#" data-toggle="modal" data-target="#myModal">Link</a></p>
+                                {% else %}
+                                    <a href = "{{Enzyme.Link}}" target="_blank">Link</a></p>
+                                {% endifequal %}
+
+
+                                    <!-- <a href={{Enzyme.Link}} target="_blank">Link
+                                    </a> -->
+                                </li>
+                                <li>
+                                    <b>Full research link：</b>
+                                    {% ifequal Enzyme.Research_Link 'nan'%}
+                                        <a href="#" data-toggle="modal" data-target="#myModal">Link</a></p>
+                                    {% else %}
+                                        <a href = "{{Enzyme.Research_Link}}" target="_blank">Link</a></p>
+                                    {% endifequal %}
+
+                                </li>
+                                <li>
+                                    <b>Abstract：</b>{{Enzyme.Abstract}}
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer" style="background-color:LightGrey"></div>
+    </div>
+</div>
+<!--                              Pubmed Link && Full research link  的模态框                           -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">Message</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+              Sorry, no more detail. Entry does not have reference link.
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+  </div>
+<!--                                                         -->
+  <div class="modal fade" id="myModal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">Message</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+              Sorry, no more detail. External link does not exist.
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock main%}

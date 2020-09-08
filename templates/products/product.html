@@ -1,0 +1,161 @@
+ {% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+
+
+
+
+<!--                                        输入框                                                          -->
+<div class="container bs-docs-container">
+    <!--                                        输入框                                                          -->
+    <form action="{% url 'denitrifications_app:Microorganism' %}" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3 ">
+            <div class="input-group-prepend ">
+                <!--这里的name属性就代表着form.py对应productForm中属性的变量名-->
+                <select class="form-control " id="sel1 " name="opt">  
+                    <option >Microorganism</option>
+                    <option >Accession Number</option>
+                </select>
+            </div>
+            <input type="text " class="form-control " aria-label="Text input with dropdown button " name="inputText">
+            <div class="input-group-append ">
+                <button class="btn btn-outline-secondary " type="submit ">Enter</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--                                        表格                                                           -->
+<div class="container">
+    <div class="card ">
+        <div class="card-body ">
+            <table class="table table-sm table-hover ">
+                <thead class="thead-dark ">
+                    <tr>
+                        <th>Microorganism</th>
+                        <th>16S RNA Accesion Number</th>
+                        <th>Isolation source</th>
+                        <th>Electron Donor</th>
+                        <th>Nitrate reduced to</th>
+                        <th>Respiration</th>
+                        <th>Reference</th>
+                        <th><p style = "font-size: 15px;">Link<span><a href="#" data-toggle="tooltip" title="click to view DDb data"><i class="fa fa-exclamation-circle"style="font-size:16px"></i></a></span></p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{product.Microorganism}}</td>
+                        <td>{{product.Accesion_Number}}</td>
+                        <td>{{product.Isolation_source}}</td>
+                        {% ifequal product.Energy_Source_Electron_donor  'H2' %}
+                        <td>H<sub>2</sub></td>
+                        {% else %}
+                        <td>{{product.Energy_Source_Electron_donor}}</td>
+                        {% endifequal  %}
+                        <td>{{product.Final_Product}}</td>
+                        <td>{{product.Respiration_Fermentative_Growth}}</td>
+                        <td>{{product.Reference}}</td>
+                        {% ifequal product.Accesion_Number 'nan'%}
+                            <td>
+                                <a href="#" data-toggle="modal" data-target="#myModal">
+                                Link
+                                </a>
+                            </td>
+                        {% else %}
+                            <td>
+                                <a href="{% url 'denitrifications_app:Strains' product.Accesion_Number %} " target="_blank ">Link</a>
+                            </td>
+                        {% endifequal %}
+                        </tr>
+                    {% empty %} {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br />
+
+
+<!--                                        数据提示                                                       -->
+<!-- <div class="container ">
+    <center>显示第{{page}}页的数据，总共有{{total_num}}个数据</center>
+</div> -->
+{% if Microorganism %}
+<div class="container ">
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination justify-content-center ">
+            <!--参数与链接之间要用空格隔开-->
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Microorganism' opt inputText  page|add:-1 %} " tabindex="-1 ">Previous</a></li>
+            {%for p in length %} {% ifequal p page %}
+            <!--让分页高亮当前页面的数值-->
+            <li class="page-item active "><a class="page-link " href="{% url 'denitrifications_app:Microorganism' opt inputText  p|add:1 %} ">{{p}}</a></li>
+            {% else %}
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Microorganism' opt inputText  p%} ">{{p}}</a></li>
+            {% endifequal %} {%endfor%}
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Microorganism' opt inputText  page|add:10 %} ">...</a></li>
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Microorganism' opt inputText  page|add:1 %} ">Next</a></li>
+        </ul>
+    </nav>
+</div>
+{% elif Accesion_Number %}
+<div class="container ">
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination justify-content-center ">
+            <!--参数与链接之间要用空格隔开-->
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Microorganism' opt inputText  page|add:-1 %} " tabindex="-1 ">Previous</a></li>
+            {%for p in length %} {% ifequal p page %}
+            <!--让分页高亮当前页面的数值-->
+            <li class="page-item active "><a class="page-link " href="{% url 'denitrifications_app:Microorganism' opt inputText  p|add:1 %} ">{{p}}</a></li>
+            {% else %}
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Microorganism' opt inputText  p%} ">{{p}}</a></li>
+            {% endifequal %} {%endfor%}
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Microorganism' opt inputText  page|add:10 %} ">...</a></li>
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Microorganism' opt inputText  page|add:1 %} ">Next</a></li>
+        </ul>
+    </nav>
+</div>
+<!--#####################################################################################-->
+{% else %}
+<div class="container ">
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination justify-content-center ">
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Strains'  page|add:-1 %} " tabindex="-1 ">Previous</a></li>
+            {%for p in length %} {% ifequal p page %}
+            <!--让分页高亮当前页面的数值-->
+            <li class="page-item active "><a class="page-link " href="{% url 'denitrifications_app:Strains'  p|add:1 %} ">{{p}}</a></li>
+            {% else %}
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Strains' p %} ">{{p}}</a></li>
+            {% endifequal %} {%endfor%}
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Strains' page|add:10 %} ">...</a></li>
+            <li class="page-item "><a class="page-link " href="{% url 'denitrifications_app:Strains' page|add:1 %} ">Next</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h4 class="modal-title">Message</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                Sorry, no more detail. Entry does not have a unique ID to cross-link the data
+            </div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endif %} {% endblock main%}

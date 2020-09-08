@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+<!--继承页面-->
+<!--将预留区域填充-->
+
+{% block title %} {{title}} {% endblock title%} {% block main %}
+<div class="container">
+<h2>Download</h2>
+    <hr style="height:1px ;background-color:slategray" />
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-8">
+            <h4>Genes</h4>
+            <p>This Excel file contains data concerning denitrifying isolates identified to possess the functional genes associated with the denitrification process collected from scientific literature. 
+                Click the <a href="{% url 'denitrifications_app:DownloadGenes' %}" download="">link</a> to download.</p>
+            <h4>Strains</h4>
+            <p>This Excel file contains data concerning bacterial strains that have been identified based on functional screening studies extracted from works of literature. 
+                Click the <a href="{% url 'denitrifications_app:DownloadStrains' %}" download="">link</a> to download.</p>
+            <h4>Sequence</h4>
+            <p>This compressed ZIP folder file contains nucleotide and protein sequences of the microbial denitrifers collected in this database. 
+                Click the <a href="{% url 'denitrifications_app:DownloadSequence' %}" download="">link</a> to download.</p>
+            <h4>Denitrification System</h4>
+            <p>This Excel file contains data dedicated to the collection of experimental data concerning the application of microbial denitrification to different wastewater treatment systems.
+                Click the <a href="{% url 'denitrifications_app:DownloadDenitriSystem' %}">Link</a> to download.</p>
+            <h4>Bioreactor</h4>
+            <p>This Excel file contains data concerning information about the types of bioreactors that are used for microbial denitrification in wastewater treatment systems and case studies in which they were trialed.
+                Click the <a href="{% url 'denitrifications_app:DownloadBioreactor' %}">Link</a> to download.</p>
+        </div>
+    </div>
+{% endblock main%}
