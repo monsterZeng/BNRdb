@@ -1,5 +1,5 @@
-Title: BNR: a manually curated data resource for microbial nitrogen removal. Datasets
-Contributors: Institution: Huazhong University of Science and Technology
+Title: BNR: a manually curated data resource for microbial nitrogen removal.   
+Datasets Contributors: Institution: Huazhong University of Science and Technology  
 
 Tanyaradzwa Rodgers Ngara
 tanyaradzwangara@gmail.com
